@@ -4,10 +4,9 @@ from bs4 import BeautifulSoup
 
 class Currency:
     def __init__(self):
-        self.url = "https://minfin.com.ua/ua/currency/"
         self.data = {}
     def get_rates(self):
-        response = requests.get(self.url, headers={'User-Agent': 'Mozilla/5.0'})
+        response = requests.get("https://minfin.com.ua/ua/currency/", headers={'User-Agent': 'Mozilla/5.0'})
         soup = BeautifulSoup(response.text, "html.parser")
         table = soup.find("table")
         rows = table.find_all("tr")
